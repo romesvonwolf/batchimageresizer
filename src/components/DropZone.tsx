@@ -38,7 +38,7 @@ export function DropZone({ onDrop }: DropZoneProps) {
     <div
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-indigo-500 transition-colors"
+      className="border-2 border-dashed border-gray-700 rounded-xl p-8 text-center hover:border-purple-500 transition-colors bg-gray-900/30"
     >
       <input
         type="file"
@@ -52,13 +52,13 @@ export function DropZone({ onDrop }: DropZoneProps) {
         htmlFor="fileInput"
         className="cursor-pointer flex flex-col items-center gap-4"
       >
-        <div className="p-4 bg-indigo-50 rounded-full">
-          <Upload className="w-8 h-8 text-indigo-600" />
+        <div className="p-4 bg-purple-900/50 rounded-full">
+          <Upload className="w-8 h-8 text-purple-400" />
         </div>
         <div>
-          <p className="text-lg font-medium text-gray-900">
+          <p className="text-lg font-medium text-gray-300">
             Drop your images here, or{' '}
-            <span className="text-indigo-600">browse</span>
+            <span className="text-purple-400">browse</span>
           </p>
           <p className="text-sm text-gray-500 mt-1">
             Supports: JPG, PNG, GIF, WebP

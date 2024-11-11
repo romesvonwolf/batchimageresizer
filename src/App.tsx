@@ -85,40 +85,40 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <div className="inline-block p-3 bg-indigo-100 rounded-full mb-4">
-            <ImageDown className="w-8 h-8 text-indigo-600" />
+          <div className="inline-block p-3 bg-purple-900/50 rounded-full mb-4 backdrop-blur-sm">
+            <ImageDown className="w-8 h-8 text-purple-400" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Batch Image Resizer</h1>
-          <p className="text-gray-600">Drag and drop your images, set your preferences, and download them all at once</p>
+          <h1 className="text-3xl font-bold text-white mb-2">Batch Image Resizer</h1>
+          <p className="text-gray-400">Drag and drop your images, set your preferences, and download them all at once</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-xl p-6 mb-6">
+        <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-2xl border border-gray-700/50 p-6 mb-6">
           <DropZone onDrop={handleDrop} />
           
           <div className="grid grid-cols-2 gap-4 mt-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Width (pixels)
               </label>
               <input
                 type="number"
                 value={width}
                 onChange={(e) => setWidth(Math.max(1, parseInt(e.target.value) || 0))}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-white"
                 min="1"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Format
               </label>
               <select
                 value={format}
                 onChange={(e) => setFormat(e.target.value as 'png' | 'jpeg')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-white"
               >
                 <option value="jpeg">JPG</option>
                 <option value="png">PNG</option>
@@ -128,8 +128,8 @@ function App() {
         </div>
 
         {files.length > 0 && (
-          <div className="bg-white rounded-xl shadow-xl p-6 mb-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Selected Images</h2>
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-2xl border border-gray-700/50 p-6 mb-6">
+            <h2 className="text-lg font-semibold text-white mb-4">Selected Images</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {files.map((file, index) => (
                 <ImagePreview
@@ -147,10 +147,10 @@ function App() {
           disabled={files.length === 0 || isProcessing}
           className={`w-full py-3 px-6 rounded-lg flex items-center justify-center gap-2 text-white font-medium transition-all
             ${files.length === 0
-              ? 'bg-gray-400 cursor-not-allowed'
+              ? 'bg-gray-700 cursor-not-allowed'
               : isProcessing
-              ? 'bg-indigo-400 cursor-wait'
-              : 'bg-indigo-600 hover:bg-indigo-700'
+              ? 'bg-purple-700 cursor-wait'
+              : 'bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-purple-500/25'
             }`}
         >
           {isProcessing ? (
